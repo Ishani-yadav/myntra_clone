@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <title>Myntra Home</title>
+  <link rel="stylesheet" href="bag.css" />
+</head>
+<body>
+  <header>
+    <h1>My Shopping Bag</h1>
+    <div class="bag-item-count-container">
+      Bag Items: <span class="bag-item-count">0</span>
+    </div>
+  </header>
+
+  <main>
+  <div class="bag-main-content">
+    <div class="bag-items-container"></div>
+    <div class="bag-summary">
+     <h3>Price Details</h3>
+  <div id="item-wise-summary"></div>
+  <hr>
+  <div class="summary-row">
+    <span><b>Total MRP</b></span>
+    <span id="total-mrp"><b>Rs 0</b></span>
+  </div>
+  <div class="summary-row">
+    <span><b>Total Discount</b></span>
+    <span id="total-discount"><b>Rs 0</b></span>
+  </div>
+  <div class="summary-row">
+    <span><b>Total Amount</b></span>
+    <span id="total-amount"><b>Rs 0</b></span>
+  </div>
+  <button class="place-order-btn">Place Order</button>
+</div>
+  </div>
+</main>
+
+  <script src="Data/bag.js"></script>
+</body>
+</html>

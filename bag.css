@@ -1,0 +1,117 @@
+.bag-item-container {
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin: 20px 0;
+  padding: 24px;
+  position: relative;
+  min-width: 400px;
+}
+
+.bag-main-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.bag-items-container {
+  flex: 2;
+}
+
+.item-left-part {
+  flex: 0 0 110px;
+  margin-right: 24px;
+}
+
+.bag-item-img {
+  width: 140px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.item-right-part {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.bag-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.company {
+  font-weight: bold;
+  font-size: 20px;
+  color: #282c3f;
+}
+
+.remove-from-bag {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #535766;
+  cursor: pointer;
+}
+
+.item-name {
+  color: #535766;
+  margin: 4px 0 8px 0;
+  font-size: 15px;
+}
+
+.price-container {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #282c3f;
+}
+
+.current-price {
+  font-weight: bold;
+  color: #282c3f;
+  margin-right: 8px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #7e818c;
+  margin-right: 8px;
+}
+
+.discount-percentage {
+  color: #ff905a;
+  font-weight: 500;
+}
+
+.return-period, .delivery-details {
+  font-size: 13px;
+  color: #03a685;
+  margin-top: 6px;
+}
+
+.bag-summary {
+  flex: 1;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 24px;
+  min-width: 280px;
+  margin-top: 0;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+.summary-row small {
+  color: #888;
+  font-size: 12px;
+}

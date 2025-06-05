@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Wishlist</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header>
+    <div class="logo_container">
+      <a href="index.html"><img class="myntra_home" src="myntra_logo.webp" alt="Myntra Logo"></a>
+    </div>
+  </header>
+  <main>
+    <div class="items-container"></div>
+  </main>
+  <script>
+    function getWishlist() {
+      return JSON.parse(localStorage.getItem('wishlist')) || [];
+    }
+    function removeFromWishlist(id) {
+      let wishlist = getWishlist();
+      wishlist = wishlist.filter(item => item.id !== id);
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      renderWishlist();
+    }
+    function renderWishlist() {
+      const container = document.querySelector('.items-container');
+      const wishlist = getWishlist();
+      if (wishlist.length === 0) {
+        container.innerHTML = "<p>Your wishlist is empty.</p>";
+        return;
+      }
+      let html = '';
+      wishlist.forEach(item => {
+        html += `
+          <div class="item-card">
+            <img src="${item.item_image}" alt="${item.item_name}" class="item-img">
+            <div class="company">${item.company_name}</div>
+            <div class="item-name">${item.item_name}</div>
+            <div class="price-row">
+              <span class="current-price">Rs ${item.current_price}</span>
+              <span class="original-price">Rs ${item.original_price}</span>
+              <span class="discount-percentage">(${item.discount_percentage}% OFF)</span>
+            </div>
+            <button class="remove-from-wishlist-btn" data-id="${item.id}">Remove</button>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+      document.querySelectorAll('.remove-from-wishlist-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          removeFromWishlist(this.getAttribute('data-id'));
+        });
+      });
+    }
+    renderWishlist();
+  </script>
+</body>
+</html>

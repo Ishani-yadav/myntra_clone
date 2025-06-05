@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Profile</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header>
+    <div class="logo_container">
+      <a href="index.html"><img class="myntra_home" src="myntra_logo.webp" alt="Myntra Logo"></a>
+    </div>
+  </header>
+  <main>
+    <div class="profile-container">
+      <h2>User Profile</h2>
+      <div class="profile-flex">
+        <div class="profile-image-section">
+          <img id="profile-img" src="https://via.placeholder.com/100" alt="Profile" class="profile-img">
+          <input type="file" id="img-upload" accept="image/*">
+        </div>
+        <form id="profile-form" class="profile-details">
+          <label>Name:<br>
+            <input type="text" id="profile-name" required>
+          </label><br>
+          <label>Email:<br>
+            <input type="email" id="profile-email" required>
+          </label><br>
+          <label>Phone:<br>
+            <input type="tel" id="profile-phone" required>
+          </label><br>
+          <label>Address:<br>
+            <textarea id="profile-address" required></textarea>
+          </label><br>
+          <button type="submit" class="add-to-wishlist-btn">Save</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  <script>
+    // Load user data from localStorage
+    const user = JSON.parse(localStorage.getItem('user')) || {};
+    if(user.img) document.getElementById('profile-img').src = user.img;
+    document.getElementById('profile-name').value = user.name || '';
+    document.getElementById('profile-email').value = user.email || '';
+    document.getElementById('profile-phone').value = user.phone || '';
+    document.getElementById('profile-address').value = user.address || '';
+
+    // Save user data
+    document.getElementById('profile-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const updatedUser = {
+        name: document.getElementById('profile-name').value,
+        email: document.getElementById('profile-email').value,
+        phone: document.getElementById('profile-phone').value,
+        address: document.getElementById('profile-address').value,
+        img: document.getElementById('profile-img').src
+      };
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+      alert('Profile saved!');
+    });
+
+    // Handle image upload
+    document.getElementById('img-upload').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if(file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          document.getElementById('profile-img').src = evt.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+</body>
+</html>
