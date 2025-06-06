@@ -3,7 +3,7 @@
 This is a fully functional clone of the [Myntra](https://www.myntra.com/) shopping website, built using **HTML**, **CSS**, and **JavaScript**.
 
 ## 🚀 Live Demo
-🔗 [Visit the site](https://github.com/Ishani-yadav/myntra_clone.git)
+🔗 [Visit the site](https://ishop-ishani.netlify.app/)
 
 ## 📁 Project Structure
 
